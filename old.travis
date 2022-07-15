@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - sudo apt-get update
+  - sudo apt install ffmpeg
+  - sudo apt-get install unzip
+  - pip3 install ffmpeg-python
+  - pip3 install ffprobe
+  - ls
+
+# command to run tests
+script:
+  - unzip ffmpeg.zip
+  - ls
+  - ffmpeg -i in_3.mp4 -vf "vflip"  -vcodec libx264 -acodec aac -strict experimental out.mp4 -y
+  - ls
+#  - python3 flip_1.py
