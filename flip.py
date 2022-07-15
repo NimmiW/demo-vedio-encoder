@@ -3,7 +3,7 @@ import sys
 sys.path.append('ffmpeg')
 
 out_file = 'out.mp4'
-in_file = 'in_3.mp4'
+in_file = 'in.mp4'
 
 def get_data(in_file):
     try:
@@ -14,7 +14,7 @@ def get_data(in_file):
         
     video_stream = next((stream for stream in probe['streams'] if stream['codec_type'] == 'video'), None)
     if video_stream is None:
-        print('No video stream found', file=sys.stderr)
+        print('No video stream found')
         sys.exit(1)
 
     width = int(video_stream['width'])
